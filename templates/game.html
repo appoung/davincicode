@@ -1,0 +1,50 @@
+<h1>{{ player_name }}의 카드 정보</h1>
+<ul>
+  {% for card_data in card_data_list %}
+  <li>카드 번호: {{ card_data.card_number }}</li>
+  <li>색상: {{ card_data.color }}</li>
+  <li>턴 순서: {{ card_data.turn_order }}</li>
+  <li>소유자: {{ card_data.owner }}</li>
+  {% endfor %}
+</ul>
+<h1>카드 추가하기</h1>
+<form action="/post" method="post">
+  <input type="hidden" name="player_name" value="{{ player_name }}" />
+  <label for="color">색깔 선택: </label>
+  <select id="color" name="color">
+    <option value="black">검정</option>
+    <option value="white">하양</option>
+  </select>
+  <br />
+  <label for="number">숫자 선택: </label>
+  <select id="number" name="number">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <!-- 0부터 13까지의 숫자를 선택할 수 있는 옵션을 추가 -->
+    <!-- 이와 같이 필요한 숫자 범위를 직접 추가할 수 있습니다. -->
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+  </select>
+  <br />
+  <label for="order">순서 선택: </label>
+  <select id="order" name="order">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <!-- 필요한 순서 범위를 직접 추가 -->
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <br />
+  <input type="submit" value="카드 추가" />
+</form>
